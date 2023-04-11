@@ -26,16 +26,18 @@ public class fifth {
         compare.click();
         Thread.sleep(500);
         driver.navigate().refresh();
+        WebElement search2=driver.findElement(By.xpath("//input[@placeholder='поиск товаров']"));
+        search2.sendKeys("медведь");
+        Thread.sleep(1000);
+        search2.sendKeys(Keys.ENTER);
         Thread.sleep(500);
-        search.sendKeys("медведь");
-        //driver.findElement(By.xpath("//input[@id='search_uide9648097e8d6ab1f30e5f4e3d31bf0f2']")).sendKeys("медведь");
+       driver.findElement(By.xpath("//div[@class='catalogCard-image-i']")).click();
+        driver.findElement(By.xpath("//div[@class='comparison-button j-widget-comparison-add']")).click();
         Thread.sleep(500);
-        search.sendKeys(Keys.ENTER);
-        driver.findElement(By.xpath("//div[@class='catalogCard-main-b']")).click();
-        Thread.sleep(500);
-        //WebElement compare=driver.findElement(By.xpath("//div[@class='comparison-button j-widget-comparison-add']"));
-        compare.click();
-        driver.findElement(By.xpath("//a[@class='comparison-view__button j-compare-link a']")).click();
+        driver.navigate().refresh();
+        driver.findElement(By.xpath("//span[text()='Сравнение']")).click();
+        Thread.sleep(2000);
+        driver.quit();
 
     }
 }

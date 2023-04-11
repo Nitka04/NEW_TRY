@@ -1,9 +1,8 @@
 package Lesson1;
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 
-public class Locators2 {
+public class LocatorsCss {
     public static void main(String[] args) {
 //Поиск элементов при помощи css
         System.setProperty("webdriver.chrome.driver","C:\\Selenium\\chromedriver.exe");

@@ -65,31 +65,28 @@ static void clearAndSendKeys(WebDriver driver, String xpath, String text){
         input.sendKeys(Keys.ENTER);
 */
 //пошук різної інформації про сторінку
-/*
         driver.get("https://rozetka.com.ua/");
         WebElement input = driver.findElement(By.xpath("//input[@name='search']"));
         //отримаємо різну інформацію
         System.out.println(input.getText());
         System.out.println(input.getTagName());
-        System.out.println(input.getClass());
+        System.out.println("Class "+input.getClass());
         //placeholder-я шукаю
         System.out.println(input.getAttribute("placeholder"));
-        System.out.println(input.getAttribute("class"));
+        System.out.println("Class "+input.getAttribute("class"));
         //background-repeat-перевірка відповідності кольору може використовуватися
         System.out.println(input.getCssValue("background-repeat"));
         input.sendKeys("Lenovo");
         //submit підтвердження вводу
         input.submit();
-*/
         // приклад використання нації веб елементів(які вже зроблені як міні методи)
 /*
-
         driver.get("https://www.guinnessworldrecords.com/search");
         WebElement searchField = driver.findElements(By.tagName("input")).get(1);
         searchField.sendKeys("Most handstand push ups");
         searchField.submit();
 */
-        driver.get("https://rozetka.com.ua/");
+    /*    driver.get("https://rozetka.com.ua/");
         WebElement input = driver.findElement(By.xpath("//button[contains(text(),'Найти')]"));
         // getLocation показує координати x y располежені правого верхнього кута елемента
         System.out.println(input.getLocation());
@@ -105,6 +102,10 @@ static void clearAndSendKeys(WebDriver driver, String xpath, String text){
         System.out.println("Высота данного элемента "+catalog.getSize().height);
         System.out.println("Ширина данного элемента "+catalog.getSize().width);
 
+*/
+        //isDisplayed();-повертає булеві значення тру або фолз
+        // catalog.isEnabled();
+        //catalog.isSelected()
 
 
 

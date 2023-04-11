@@ -16,7 +16,8 @@ public class Fourth {
         driver.manage().window().maximize();
 
         driver.get("https://uhomki.com.ua/ru/");
-        WebElement webEl1=driver.findElement(By.xpath("https://uhomki.com.ua/ru/"));
-        webEl1.getText();
+        WebElement webEl1=driver.findElement(By.xpath("//footer[@class='footer']/div/div/div/div[2]"));
+        System.out.println(webEl1.getText());
+        driver.quit();
     }
 }
