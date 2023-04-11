@@ -17,6 +17,6 @@ public class Fourth {
 
         driver.get("https://uhomki.com.ua/ru/");
         WebElement webEl1=driver.findElement(By.xpath("https://uhomki.com.ua/ru/"));
-
+        webEl1.getText();
     }
 }

@@ -29,7 +29,7 @@ public class second {
         if (x1<x2){
             System.out.println("First element is closer to the left side.");
         }else { System.out.println("Second element is closer to the left side.");}
-        if(high1*length1*2<high2*length2*2){
+        if(high1*length1<high2*length2){
             System.out.println("First element area of  is bigger.");
         }else {System.out.println("Second element area of  is bigger.");}
     }
