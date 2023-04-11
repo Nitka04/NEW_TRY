@@ -103,13 +103,25 @@ static void clearAndSendKeys(WebDriver driver, String xpath, String text){
         System.out.println("Ширина данного элемента "+catalog.getSize().width);
 
 */
-        //isDisplayed();-повертає булеві значення тру або фолз
-        // catalog.isEnabled();
-        //catalog.isSelected()
+//isDisplayed();-повертає булеві значення тру або фолз
+// catalog.isEnabled();
+//catalog.isSelected()
 
+        driver.get("https://www.guinnessworldrecords.com/Account/Login");
+        WebElement acceptCookiesButton = driver.findElement(By.id("ez-accept-all"));
+        acceptCookiesButton.click();
+        WebElement checkBox = driver.findElement(By.id("RememberMe"));
+        System.out.println("Ифно до нажатия:");
+        System.out.println(checkBox.isDisplayed());
+        System.out.println(checkBox.isEnabled());
+        System.out.println(checkBox.isSelected());
 
+        checkBox.click();
 
+        System.out.println("Ифно после нажатия:");
+        System.out.println(checkBox.isDisplayed());
+        System.out.println(checkBox.isEnabled());
+        System.out.println(checkBox.isSelected());
 
     }
-
 }
