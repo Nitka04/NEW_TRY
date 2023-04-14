@@ -61,8 +61,8 @@ public class third {
                  }else{System.out.println("tag of element: "+info.getTagName());}
              }catch (NullElem e){System.out.println(e.getMessage());}
              int high=info.getSize().height;
-             int length=+info.getSize().width;
-             int y=info.getLocation().y+high/2;
+             int length=info.getSize().width;
+             int y=info.getLocation().y-high/2;
              int x=info.getLocation().x+length/2;
         System.out.println("Ccoordinates of the centre contaner:\n"+"x="+x+"\ny="+y);
         driver.quit();

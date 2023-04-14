@@ -17,7 +17,10 @@ public class DriverMethod {
         //але їх треба з'єднати тому прописуємо це у скобках
         WebDriver driver = new ChromeDriver(options);
         //timeouts() интерфейс для управления ожиданиями драйвера
+        //implicitlyWait-неявное ожидание,  будет действовать на протяжении всего пробега автотестов
+        // и ожидать указанное время прежде, чем выбросить NoSuchElementException
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+        //
         driver.manage().timeouts().pageLoadTimeout(10,TimeUnit.SECONDS);
         driver.manage().timeouts().setScriptTimeout(10,TimeUnit.SECONDS);
         //.window(): активирует интерфейс для управления текущим окном

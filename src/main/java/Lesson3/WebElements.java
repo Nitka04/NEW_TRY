@@ -88,7 +88,7 @@ static void clearAndSendKeys(WebDriver driver, String xpath, String text){
 */
     /*    driver.get("https://rozetka.com.ua/");
         WebElement input = driver.findElement(By.xpath("//button[contains(text(),'Найти')]"));
-        // getLocation показує координати x y располежені правого верхнього кута елемента
+        // getLocation показує координати x y располежені лівого верхнього кута елемента
         System.out.println(input.getLocation());
         //отримання координат окремо
         System.out.println("координата x "+ input.getLocation().x);
@@ -114,6 +114,7 @@ static void clearAndSendKeys(WebDriver driver, String xpath, String text){
         System.out.println("Ифно до нажатия:");
         System.out.println(checkBox.isDisplayed());
         System.out.println(checkBox.isEnabled());
+        //частіше використовувається саме цей оператор обран чи цей обїект чи ні.
         System.out.println(checkBox.isSelected());
 
         checkBox.click();
