@@ -27,20 +27,20 @@ public class DriverMethod {
         driver.manage().window().maximize();
 
 /*        driver.get("https://rozetka.com.ua/ua/");
-        //отримання усіх кукіз та відобразити іх в консолі.
+//отримання усіх кукіз та відобразити іх в консолі.
         System.out.println(driver.manage().getCookies());
 
        Set<Cookie> set = driver.manage().getCookies();
-       //<...> -ми вставляємо множину у котріх немає об'єктів, в данному випадку це множина
-       // різновідність куків
+//<...> -ми вставляємо множину у котріх немає об'єктів, в данному випадку це множина
+// різновідність куків
 
-        //виводимо усі кукі данного сайту.
+//виводимо усі кукі данного сайту.
         for (Cookie cookie:set){
             System.out.println(cookie);
         }
-        //приводимо до массиву щоб дізнатися його довжину.
+//приводимо до массиву щоб дізнатися його довжину.
         System.out.println("Количество куков равно "+ set.toArray().length);
-        //отримати інформацію про конкретну куку
+//отримати інформацію про конкретну куку
         //set  не може дублювати тобто не можно через запятую вставіти дві цифри
         System.out.println("Отдельная кука "+ set.toArray()[6]);
         //закінчівши один get  драйвер перейде до іншого .
@@ -78,30 +78,30 @@ public class DriverMethod {
 //работа с окнами
 /*
         driver.get("https://dan-it.com.ua/program/kiev/java/");
-        //отримати діскриптер текущего вікна індіфікатор
+//отримати діскриптер текущего вікна індіфікатор
         System.out.println(driver.getWindowHandle());
         String descr1= driver.getWindowHandle();
-        //driver.getWindowHandle() и driver.getWindowHandles() дискриптор оконо.
-        // єто когда мі откріваем новю страницу и продолжить работу в ней
-        //т.к вебдрайвер думает что мі работаем в предідущей странице.
+//driver.getWindowHandle() и driver.getWindowHandles() дискриптор оконо.
+// єто когда мі откріваем новю страницу и продолжить работу в ней
+//т.к вебдрайвер думает что мі работаем в предідущей странице.
         Set<String> set1 = driver.getWindowHandles();
-        //JavascriptExecutor-дозволяє відкрити нове вікно.
-        //window.open()-метод відкриття нового вікна
+//JavascriptExecutor-дозволяє відкрити нове вікно.
+//window.open()-метод відкриття нового вікна
         ((JavascriptExecutor)driver).executeScript("window.open()");
-        //driver.getWindowHandle() и driver.getWindowHandles() дискриптор оконо.
+//driver.getWindowHandle() и driver.getWindowHandles() дискриптор оконо.
         Set<String> set2 = driver.getWindowHandles();
-        // видалити усі вказані діскриптори
+// видалити усі вказані діскриптори
         set2.removeAll(set1);
-        // це вже продовження працювати в новому вікні
+// це вже продовження працювати в новому вікні
         String descr2= set2.iterator().next();
-        //SwichTo()-переключение на інше вікно
+//SwichTo()-переключение на інше вікно
         driver.switchTo().window(descr2);
         driver.navigate().to("https://rozetka.com.ua/");
-        //отримати діскриптер усіх відкритих вікон.
+//отримати діскриптер усіх відкритих вікон.
         System.out.println(driver.getWindowHandles());
-        //переключення на 1ше вікно
+//переключення на 1ше вікно
         driver.switchTo().window(descr1);
-        //його закриття
+//його закриття
         driver.close();
         Thread.sleep(2000);
         driver.quit();
