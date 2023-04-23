@@ -9,65 +9,143 @@ import java.time.Duration;
 //написання методів по очікуванню виконання тестових завдань
 public class Waiters {
     private final WebDriver driver;//переменная незмінна
-    private static final long EVPLICITY_WAIT=20L;
+    private static final long EXPLICITY_WAIT = 20L;
+
     public Waiters(WebDriver driver) {//конструктор
-        this.driver=driver;
+        this.driver = driver;
     }
 
-    private FluentWait<WebDriver> fluentWait(Long duration ){ //метод який повертає
-        return  new FluentWait<>(driver)
-        .withTimeout(Duration.ofSeconds(10))
+    //Пириватний метод якийповертає значення рівне такому:(new WebDriverWait(driver, Duration.ofSeconds(EXPLICITY_WAIT)))
+//завдяки цьому методу ми можемо повертати Webelement;
+    private FluentWait<WebDriver> fluentWait(Long duration) { //метод який повертає
+        return new FluentWait<>(driver)
+                .withTimeout(Duration.ofSeconds(duration))
                 .pollingEvery(Duration.ofSeconds(5))
                 .ignoring(NoSuchElementException.class)
                 .ignoring(ElementNotInteractableException.class)
                 .ignoring(InvalidElementStateException.class)
                 .ignoring(StaleElementReferenceException.class);
     }
-    private void waitForFunction(Function function, Long timeOutInSeconds){ //метод який повертає
-        FluentWait<WebDriver> wait=fluentWait(timeOutInSeconds);
+
+    // Пириватний метод відповідає за очікування функції що рівно такому запису: wait.until(ExpectedConditions.presenceOfElementLocated
+//(By.xpath("//input[@placeholder='поиск товаров']")))
+//можемо використовувати данний метод як для очікування так і для повернення значення Webelement
+    private void waitForFunction(Function function, Long timeOutInSeconds) { //метод який повертає
+        FluentWait<WebDriver> wait = fluentWait(timeOutInSeconds);
+    }
+//VisabilityOfElement
+    public void waitForVisabilityOfElement(WebElement element) {
+        waitForFunction(ExpectedConditions.visibilityOf(element), EXPLICITY_WAIT);
+    }
+    public void waitForVisabilityOfElement(By by) {
+        waitForFunction(ExpectedConditions.visibilityOf(driver.findElement(by)), EXPLICITY_WAIT);
+    }
+    public WebElement waitForVisabilityOfElementReturn(WebElement element) {
+        return fluentWait(EXPLICITY_WAIT).until(
+                ExpectedConditions.visibilityOf(element));
+    }
+    public WebElement waitForVisabilityOfElementReturn(By by) {
+        return fluentWait(EXPLICITY_WAIT).until(ExpectedConditions.visibilityOf(driver.findElement(by)));
     }
 
-    public void  wwaitForVisabilityOfElement (WebElement element){
-        waitForFunction(ExpectedConditions.visibilityOf(element), EVPLICITY_WAIT);
-    }
-
-    public void  waitForVisabilityOfElement (By by){
-        waitForFunction(ExpectedConditions.visibilityOf(driver.findElement(by)), EVPLICITY_WAIT);
-    }
-
-    public WebElement waitForVisabilityOfElementReturn (WebElement element){
-        return fluentWait(EVPLICITY_WAIT).until(ExpectedConditions.visibilityOf(element));
-    }
-    public WebElement waitForVisabilityOfElementReturn (By by){
-        return fluentWait(EVPLICITY_WAIT).until(ExpectedConditions.visibilityOf(driver.findElement(by)));
-    }
-
-    //textToBePresentInElementValue
-    public void waitFortextToBePresentInElementValue(WebElement element, String text){
-        waitForFunction(ExpectedConditions
-                .textToBePresentInElementValue(element,text),EVPLICITY_WAIT);
-    }
-    public void waitForInvisibilityOf(WebElement element){
-        waitForFunction(ExpectedConditions
-                .invisibilityOf(element),EVPLICITY_WAIT);
-    }
-    public void waitForTitleContains(String text){
-        waitForFunction(ExpectedConditions
-                .titleContains(text),EVPLICITY_WAIT);
-    }
-    public WebElement waitForPresenceOfElementLocated(By by){
-        return fluentWait(EVPLICITY_WAIT)
-                .until(ExpectedConditions.presenceOfElementLocated(by));
-    }
-    public void waitSomeSecond(int seconds){
-        int milisecond = seconds*1000;
+//waitSomeSecond
+    public void waitSomeSecond(int seconds) {
+        int milisecond = seconds * 1000;
         try {
             Thread.sleep(milisecond);
-        }catch (InterruptedException e){
+        } catch (InterruptedException e) {
             e.printStackTrace();
         }
     }
 
+//ElementToBeClickable
+    public WebElement waitForElementToBeClickableReturn(WebElement element) {
+        return fluentWait(EXPLICITY_WAIT).until(ExpectedConditions.elementToBeClickable(element));
+    }
+    public WebElement waitForElementToBeClickableReturn(By by) {
+        return fluentWait(EXPLICITY_WAIT).until(ExpectedConditions.elementToBeClickable(driver.findElement(by)));
+    }
+    public void waitForElementToBeClickable(WebElement element) {
+        waitForFunction(ExpectedConditions.elementToBeClickable(element), EXPLICITY_WAIT);
+    }
+    public void waitForElementToBeClickable(By by) {
+        waitForFunction(ExpectedConditions.elementToBeClickable(driver.findElement(by)), EXPLICITY_WAIT);
+    }
 
+//elementToBeSelected()
+    public void waitForElementToBeSelected(By by) {
+        waitForFunction(ExpectedConditions.elementToBeSelected(driver.findElement(by)), EXPLICITY_WAIT);
+    }
+    public void waitForElementToBeSelected(WebElement element) {
+        waitForFunction(ExpectedConditions.elementToBeSelected(element), EXPLICITY_WAIT);
+    }
 
+//presenceOfElementLocated()
+    public WebElement waitForPresenceOfElementLocatedReturn(By by) {
+        return fluentWait(EXPLICITY_WAIT)
+                .until(ExpectedConditions.presenceOfElementLocated(by));
+    }
+
+    public void waitForPresenceOfElementLocated(By by) {
+        waitForFunction(ExpectedConditions.presenceOfElementLocated(by), EXPLICITY_WAIT);
+    }
+
+//textToBePresentInElementValue
+    public void waitFortextToBePresentInElementValue(WebElement element, String text) {
+        waitForFunction(ExpectedConditions
+                .textToBePresentInElementValue(element, text), EXPLICITY_WAIT);
+    }
+    public void waitFortextToBePresentInElementValue(By by, String text) {
+        waitForFunction(ExpectedConditions
+                .textToBePresentInElementValue(driver.findElement(by), text), EXPLICITY_WAIT);
+    }
+
+//invisibilityOf()
+    public void waitForInvisibilityOf(WebElement element) {
+        waitForFunction(ExpectedConditions
+                .invisibilityOf(element), EXPLICITY_WAIT);
+    }
+
+//titleContains()
+    public void waitForTitleContains(String text) {
+        waitForFunction(ExpectedConditions
+                .titleContains(text), EXPLICITY_WAIT);
+    }
+
+//titleIs()
+    public void waitForTitleIs(String text) {
+        waitForFunction(ExpectedConditions
+                .titleIs(text), EXPLICITY_WAIT);
+    }
+
+// elementSelectionStateToBe()
+    public void waitForElementSelectionStateToBe(By by, boolean ExResult) {
+        waitForFunction(ExpectedConditions.elementSelectionStateToBe(driver.findElement(by), ExResult), EXPLICITY_WAIT);
+    }
+    public void waitForElementSelectionStateToBe(WebElement element, boolean ExResult) {
+        waitForFunction(ExpectedConditions.elementSelectionStateToBe(element, ExResult), EXPLICITY_WAIT);
+    }
+
+//visibilityOfElementLocated()
+    public void waitForElementSelectionStateToBe(By by) {
+        waitForFunction(ExpectedConditions.visibilityOfElementLocated(by), EXPLICITY_WAIT);
+    }
+    public WebElement waitForElementSelectionStateToBeReturn(By by) {
+        return fluentWait(EXPLICITY_WAIT)
+                .until(ExpectedConditions.visibilityOfElementLocated(by));
+    }
+
+//frameToBeAvailableAndSwitchToIt()
+    public void waitForFrameToBeAvailableAndSwitchToIt(By by) {
+        waitForFunction(ExpectedConditions.frameToBeAvailableAndSwitchToIt(driver.findElement(by)), EXPLICITY_WAIT);
+    }
+    public void waitForFrameToBeAvailableAndSwitchToIt(WebElement element) {
+        waitForFunction(ExpectedConditions.frameToBeAvailableAndSwitchToIt(element), EXPLICITY_WAIT);
+    }
+
+//alertIsPresent()
+    public Alert waitAlertIsPresent() {
+        return fluentWait(EXPLICITY_WAIT)
+                .until(ExpectedConditions.alertIsPresent());
+    }
 }

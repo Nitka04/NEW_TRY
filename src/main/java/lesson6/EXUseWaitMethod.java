@@ -9,7 +9,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.time.Duration;
 
-public class EX3 {
+public class EXUseWaitMethod {
     //приклад використання методів тестування по классу очікування waiters
 
     private static class Locators {
@@ -26,8 +26,8 @@ public class EX3 {
         Waiters waiters = new Waiters(driver);
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
         driver.get("https://www.guinnessworldrecords.com/Account/Login");
-        WebElement accept = waiters.waitForVisabilityOfElementReturn(Locators.acceptCookies);
-        accept.click();
+       /* WebElement accept = waiters.waitForVisabilityOfElementReturn(Locators.acceptCookies);
+        accept.click();*/
         WebElement userNameField = waiters.waitForVisabilityOfElementReturn(Locators.userName);
         waiters.waitFortextToBePresentInElementValue(userNameField, "Хомяк");
         driver.findElement(Locators.pass).sendKeys("Password");
@@ -35,11 +35,11 @@ public class EX3 {
         waiters.waitForInvisibilityOf(userNameField);
         wait.until(ExpectedConditions.titleIs("\"У Хомки\" Интернет-зоомагазин | Днепр, пр. А. Поля, 59. (остановка \"Медтехника\")"));
         waiters.waitForTitleContains("\"У Хомки\"");
-        WebElement element = waiters.waitForPresenceOfElementLocated(By.xpath("//span//a[@href='/ru/oplata-i-dostavka/']"));
+        WebElement element =waiters.waitForPresenceOfElementLocatedReturn(By.xpath("//span//a[@href='/ru/oplata-i-dostavka/']"));
         wait.until(ExpectedConditions.textToBePresentInElement(element, "Оплата и доставка"));
         System.out.println(driver.getTitle());
         waiters.waitSomeSecond(2);
-        driver.quit();
+        //driver.quit();
 
     }
 }

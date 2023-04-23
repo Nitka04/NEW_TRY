@@ -38,7 +38,9 @@ public class Homework25 {
         Set<String> set2 = driver.getWindowHandles();
         set2.removeAll(set1);
         String descrGuinness=set2.iterator().next();
-        //Thread.sleep(5000);
+
+        //wait.until(ExpectedConditions.textTobe
+
 
         driver.findElement(By.xpath("//textarea[@class='gLFyf']")).clear();
         System.out.println("Url= "+driver.getCurrentUrl());

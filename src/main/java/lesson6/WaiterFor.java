@@ -36,7 +36,7 @@ public class WaiterFor {
 // wait.until(ExpectedConditions.visibilityOfElementLocated(BY))
 
 //visibilityOfElementLocated,frameToBeAvailableAndSwitchToIt,alertIsPresent
-     /*   wait.until(ExpectedConditions.frameToBeAvailableAndSwitchToIt("iframe[@id='iframeResult']"));
+        wait.until(ExpectedConditions.frameToBeAvailableAndSwitchToIt("iframe[@id='iframeResult']"));
 //  як би ми це робили без явного очікування
         wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//button[text()='Try it']")));
         WebElement tryIt= driver.findElement(By.xpath("//button[text()='Try it']"));
@@ -47,8 +47,8 @@ public class WaiterFor {
         Alert alert=wait.until(ExpectedConditions.alertIsPresent());
         System.out.println(alert.getText());
         alert.accept();
-        driver.quit();*/
-/*
+        driver.quit();
+
 //elementToBeClickable(), elementToBeSelected(), elementSelectionStateToBe()
         driver.get("https://guinnessworldrecords.com/Account/Login?ReturnUrl=%2faccount");
 //очікування наступної дії,поки буде клікабельно вікно вводу, тобо то наступна дія не виконається до завершення очікування і дії в ньому
@@ -65,17 +65,16 @@ public class WaiterFor {
 //titleContains(), titleIs()
 // очікування поки якийсь елемент не исчесзнет
         wait.until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("//input[@id='Password']")));
- //з'явилась назва сторінки
+        //з'явилась назва сторінки
         wait.until(ExpectedConditions.titleContains("DAN.IT"));
         wait.until(ExpectedConditions.titleContains("програмування в Києві"));
         wait.until(ExpectedConditions.titleIs("Курси програмування в Києві ☑️ IT курси з працевлаштуванням"));
         System.out.println(driver.getTitle());
         driver.quit();
-*/
- /*
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+       /* WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
         driver.get("https://www.guinnessworldrecords.com/Account/Login");
         WebElement accept = wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("ez-accept-all")));
+        wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("ez-accept-all")));
         accept.click();
         WebElement userNameField = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//input[@id='Username']")));
         wait.until(ExpectedConditions.textToBePresentInElementValue(userNameField,"Хомяк"));
@@ -88,7 +87,6 @@ public class WaiterFor {
         wait.until(ExpectedConditions.textToBePresentInElement(element,"Оплата и доставка"));
         System.out.println(driver.getTitle());
 */
-
 //ВІЛЬНІ ОЧІКУВАННЯ
         FluentWait <WebDriver> fluentWait =new  FluentWait<>(driver).withTimeout(Duration.ofSeconds(10))
                 .pollingEvery(Duration.ofSeconds(5))
