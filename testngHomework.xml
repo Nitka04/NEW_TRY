@@ -2,8 +2,7 @@
 <suite name="AllTestsSuite">
     <test name="AllTestCases">
         <classes>
-            <class name="testng.first.Asserts"/>
-            <class name="testng.first.Ex2"/>
+            <class name="Homeworks.Нomework27"/>
         </classes>
     </test>
 </suite>

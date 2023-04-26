@@ -12,7 +12,7 @@ import java.util.List;
 
 import static org.testng.Assert.*;
 
-public class Ex1  {
+public class Asserts {
 
     @Test
     public void checkWebPageTitle(){

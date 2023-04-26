@@ -117,10 +117,5 @@ public class DriverMethod {
         }
         driver.quit();
 
-
-
-
-
-
     }
 }

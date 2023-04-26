@@ -45,7 +45,6 @@ public class Ex1 {
         assertEquals(driver.getTitle(), "Євген Клопотенко - Кулінарні рецепти від Євгена Клопотенка", "Названия страниц не совпадают");
         assertNotEquals(driver.getTitle(), "Євген Клопот4енко - Кулінарні рецепти від Євгена Клопотенка", "Названия страниц не совпадают");
     }
-
     @Test
     public void dcheckofCheckBox() {
         driver.get("https://klopotenko.com/login/");
@@ -63,8 +62,6 @@ public class Ex1 {
         newCheckBox.click();
         assertFalse(checkbox.isSelected(), "Чекбокс уже нажат");
     }
-
-
     @Test
     public void acountOfIngredients() {
         driver.get("https://klopotenko.com/solodko-yaskravo-aromatno-zapechena-morkva-z-rozmarynom-i-mandarynovym-sokom-vid-yevgena-klopotenka/");
@@ -73,6 +70,8 @@ public class Ex1 {
         assertTrue(elements.size() == 5, "Количество ингридиентов не равно 5, оно равно "
                 + elements.size());
     }
+
+
     @AfterClass
     public void closeDriver(){
         driver.quit();
