@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<suite name="AllTestsSuite">
+    <test name="Smoke">
+        <groups>
+            <run>
+                <include name="smoke"/>
+            </run>
+        </groups>
+        <classes>
+            <class name="testng.groups.TestGroups"/>
+        </classes>
+    </test>
+    <test name="regression">
+        <groups>
+            <run>
+                <include name="regression"/>
+            </run>
+        </groups>
+        <classes>
+            <class name="testng.groups.TestGroups"/>
+        </classes>
+    </test>
+</suite>

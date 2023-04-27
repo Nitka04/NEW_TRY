@@ -41,6 +41,7 @@ public class Ex2 {
         WebElement element = (new Waiters(driver)
                 .waitForPresenceOfElementLocatedReturn(By.xpath("//a[@aria-label='dismiss cookie message']")));
         element.click();
+ //Це функція для скролінгу, прокрутки
         JavascriptExecutor js = (JavascriptExecutor) driver;
         js.executeScript("window.scrollBy(0,200)");
         WebElement checkbox = (new Waiters(driver)
