@@ -19,6 +19,7 @@ public class Ex1 {
     static WebDriver driver;
     @BeforeClass
  // @Parameters({...}) вказуємо різні параметри як наприклад різні браузери
+ //в value ми підставляємо різні значення вже в самому тестовому файлі
     @Parameters({"browser"})
     public void startTest(String browser){
         if(browser.equals("chrome_params")){
@@ -31,6 +32,7 @@ public class Ex1 {
             driver.manage().window().maximize();
         }
         driver.get("https://klopotenko.com/");
+
         WebElement element = (new Waiters(driver)
                 .waitForPresenceOfElementLocatedReturn(By.xpath("//a[@aria-label='dismiss cookie message']")));
         element.click();
@@ -70,7 +72,6 @@ public class Ex1 {
         assertTrue(elements.size() == 5, "Количество ингридиентов не равно 5, оно равно "
                 + elements.size());
     }
-
 
     @AfterClass
     public void closeDriver(){

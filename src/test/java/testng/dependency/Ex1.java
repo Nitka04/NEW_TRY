@@ -13,37 +13,28 @@ import static org.testng.Assert.*;
 
 
 public class Ex1 extends BaseTest {
-    //тести запускаються по абеки, тому якщо нам потрібно особистий пріоритет то треба його встанови
-    // поряд з "@test (priority)
+ //тести запускаються по абеки, тому якщо нам потрібно особистий пріоритет то треба його встанови
+// поряд з "@test (priority)
     @BeforeClass
     public void acceptCookies(){
         driver.get("https://klopotenko.com/");
         // WebElement element=(new Waiters(driver)).waitForPresenceOfElementLocatedReturn(By.xpath("//a[@aria-label='dismiss cookie message']"));
       //  element.click();
     }
-
+//dependsOnMethods  -вказує що данний тест залежить від якогось тесту якщо він не пройде то цей тестне запуститься
     @Test (dependsOnMethods = {"checkofCheckBox"})
     public void checkWebPageTitle(){
         driver.get("https://klopotenko.com/");
-        //WebElement element=(new Waiters(driver)).waitForPresenceOfElementLocatedReturn(By.xpath("//a[@aria-label='dismiss cookie message']"));
-       // element.click();
-
-//assert всьго 4 методи, якщо хочаб один assert не виконується то тест падає і дальніші дії не виконуються.
-//в кінці assert ми пишемо сповіщення яке видасть якщо тест впаде/не виконається
-//тест буде вважатися пройденим якщо всередині метода правдивий виразю
         assertTrue(driver.getTitle().equals("Євген Клопотенко - Кулінарні рецепти від Євгена Клопотенка"),"Названия страниц не совпадают," +
                 " я ожидал другого");
-// assertFalse якщо вираз в середині не виконується тест проходить
         assertFalse(driver.getTitle().equals("CЕРГІЙ Клоп4отенко - Кулінарні рецепти від Євгена Клопотенка"),"Названия страниц не совпадают," +
                 " я ожидал другого");
-//assertEquals всередені 3 параметра, фактичне занчення,з чим порівнювати, яке сповіщення видати якщо вони не співподуть
         assertEquals(driver.getTitle(),"Євген Клопотенко - Кулінарні рецепти від Євгена Клопотенка","Названия страниц не совпадают");
         assertNotEquals(driver.getTitle(),"Євгенй Клопот4енко - Кулінарні рецепти від Євгена Клопотенка","Названия страниц не совпадают");
     }
     @Test (priority = 2)
     public void checkofCheckBox(){
         driver.get("https://klopotenko.com/login/");
-        //WebElement element = (new Waiters(driver).waitForPresenceOfElementLocated(By.xpath("//a[@aria-label='dismiss cookie message']")));
         WebElement element=(new Waiters(driver)).waitForPresenceOfElementLocatedReturn(By.xpath("//a[@aria-label='dismiss cookie message']"));
         element.click();
         WebElement checkbox = (new Waiters(driver)).waitForPresenceOfElementLocatedReturn(By.xpath("//i[@class='um-icon-android-checkbox-outline-blank']"));

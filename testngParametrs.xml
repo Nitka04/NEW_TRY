@@ -8,6 +8,7 @@
     </test>
     <test name="AllTestCases2">
         <parameter name="browser" value="false_chrome_params"/>
+        <!--в value ми підставляємо різні значення вже в самому тестовому файлі-->
         <classes>
             <class name="testng.parameters.Ex1"/>
         </classes>

@@ -38,8 +38,6 @@ public class Ex2 extends BaseTest {
         assertNotEquals(driver.getTitle(),"Євген Клопот4енко - Кулінарні рецепти від Євгена Клопотенка","Названия страниц не совпадают");
         driver.quit();
     }
-
-
     @Test (priority = 2, enabled = false)
     public void checkofCheckBox(){
         System.setProperty("webdriver.chrome.driver", "C:\\selenium\\chromedriver.exe");

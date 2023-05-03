@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<suite name="AllTestsSuite">
+    <test name="AllTestCases">
+        <parameter name="input" value="input"/>
+        <classes>
+            <class name="Homeworks.Homework28.task4"/>
+        </classes>
+    </test>
+    <test name="AllTestCases2">
+        <parameter name="input" value="машина"/>
+        <classes>
+            <class name="Homeworks.Homework28.task4"/>
+        </classes>
+    </test>
+    <test name="AllTestCases3">
+        <parameter name="input" value="смысл"/>
+        <classes>
+            <class name="Homeworks.Homework28.task4"/>
+        </classes>
+    </test>
+</suite>
+

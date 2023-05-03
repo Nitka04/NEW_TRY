@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<suite name="AllTestsSuite">
+    <test name="countable">
+        <groups>
+            <run>
+                <include name="first"/>
+            </run>
+        </groups>
+        <classes>
+            <class name="Homeworks.Homework28.grouping.Groups"/>
+        </classes>
+    </test>
+    <test name="uncountable">
+        <groups>
+            <run>
+                <include name="second"/>
+            </run>
+        </groups>
+        <classes>
+            <class name="Homeworks.Homework28.grouping.Groups"/>
+        </classes>
+    </test>
+</suite>

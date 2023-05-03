@@ -32,21 +32,6 @@ public class TestGroups {
         driver.quit();
     }
     private static class Locators {
-        WebDriver driver;
-        @BeforeClass
-        public void start(){
-            System.setProperty("webdriver.chrome.driver", "C:\\selenium\\chromedriver.exe");
-            driver = new ChromeDriver();
-            driver.manage().window().maximize();
-            driver.get("https://klopotenko.com/");
-            WebElement element = (new Waiters(driver)
-                    .waitForPresenceOfElementLocatedReturn(By.xpath("//a[@aria-label='dismiss cookie message']")));
-            element.click();
-        }
-        @AfterClass
-        public void stop(){
-            driver.quit();
-        }
         private final static By meat = By.xpath("//ul[@id='menu-main_menu_our-ua']//a[text()='М’ясні']");
         private final static By fish = By.xpath("//ul[@id='menu-main_menu_our-ua']//a[text()='Рибне']");
         private final static By veg = By.xpath("//ul[@id='menu-main_menu_our-ua']//a[text()='Овочеві']");
@@ -55,7 +40,7 @@ public class TestGroups {
         private final static By pizza = By.xpath("//ul[@id='menu-main_menu_our-ua']//a[text()='Піца']");
     }
     private static class Labels {
-        //для швидкого використання в порівняннях або вводу данних в тестах
+
         private final static String uaLocalisation = "UA";
         private final static String enLocalisation = "EN";
         private final static String meat = "М’ясні";

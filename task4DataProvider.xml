@@ -2,8 +2,7 @@
 <suite name="AllTestsSuite">
     <test name="AllTestCases">
         <classes>
-            <class name="Homeworks.Homework28.priority.Priority1"/>
-            <class name="Homeworks.Homework28.priority.Priority2"/>
+            <class name="Homeworks.Homework28.task4"/>
         </classes>
     </test>
 </suite>

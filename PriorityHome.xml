@@ -3,7 +3,6 @@
     <test name="AllTestCases">
         <classes>
             <class name="Homeworks.Homework28.priority.Priority1"/>
-            <class name="Homeworks.Homework28.priority.Priority2"/>
         </classes>
     </test>
 </suite>
