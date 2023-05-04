@@ -23,9 +23,9 @@ public class Task4 {
         driver = new ChromeDriver();
         driver.manage().window().maximize();
         driver.get("https://www.foxtrot.com.ua/");
-        WebElement element = (new Waiters(driver))
+        /*WebElement element = (new Waiters(driver))
                 .waitForPresenceOfElementLocatedReturn(By.xpath("//div[@class='popup user-location-popup first-visit popup_active']/div/div[1]"));
-        element.click();
+        element.click();*/
     }
     @AfterMethod
     public void stop(){
@@ -42,9 +42,8 @@ public class Task4 {
     }
     @Test(dataProvider = "searchWords")
     public void checkOfSearchResultDataProvider (String searchWord, String expretedValue) {
-
         WebElement searchLine=(new Waiters(driver))
-                .waitForPresenceOfElementLocatedReturn(By.xpath("//input[@placeholder='Я шукаю ...']"));
+                .waitForPresenceOfElementLocatedReturn(By.xpath("//input[@type='search']"));
         Actions action=new Actions(driver);
         searchLine.sendKeys(searchWord);
         action.sendKeys(searchLine, Keys.ENTER).build().perform();
