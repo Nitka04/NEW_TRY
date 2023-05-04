@@ -1,20 +1,20 @@
 package Homeworks.Homework28;
 
-
-
 import lesson6.Waiters;
-import net.bytebuddy.asm.Advice;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.interactions.Actions;
-import org.testng.annotations.*;
+import org.testng.annotations.AfterMethod;
+import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.DataProvider;
+import org.testng.annotations.Test;
 
 import static org.testng.Assert.assertTrue;
 
-public class task4 {
+public class Task4 {
     static WebDriver driver;
     @BeforeMethod
     public void start(){
@@ -52,15 +52,15 @@ public class task4 {
                 .waitForPresenceOfElementLocatedReturn(By.xpath("//div[@class='page__title']"));
         WebElement resultOfIncorrectSearch=(new Waiters(driver))
                 .waitForPresenceOfElementLocatedReturn(By.xpath("//main[@class='pb-3']/main/div/following-sibling::*[1]/div/div/h1"));
-          if (resultOfSearch.getText().contains(expretedValue)) {
-              assertTrue(resultOfSearch.getText().contains(expretedValue));
-          }else {
-              if (resultOfIncorrectSearch.getText().contains(expretedValue)) {
-                  assertTrue(resultOfIncorrectSearch.getText().contains(expretedValue), "The result of search didn`t contains the word" + resultOfIncorrectSearch.getText());
-              } else {
-                  System.out.println("The result of search didn`t contains the word" + resultOfSearch.getText());
-              }
-          }
+        if (resultOfSearch.getText().contains(expretedValue)) {
+            assertTrue(resultOfSearch.getText().contains(expretedValue));
+        }else {
+            if (resultOfIncorrectSearch.getText().contains(expretedValue)) {
+                assertTrue(resultOfIncorrectSearch.getText().contains(expretedValue), "The result of search didn`t contains the word" + resultOfIncorrectSearch.getText());
+            } else {
+                System.out.println("The result of search didn`t contains the word" + resultOfSearch.getText());
+            }
+        }
 
     }
 }

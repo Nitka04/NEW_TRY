@@ -18,8 +18,8 @@ import static org.testng.Assert.*;
 public class Ex1 {
     static WebDriver driver;
     @BeforeClass
- // @Parameters({...}) вказуємо різні параметри як наприклад різні браузери
- //в value ми підставляємо різні значення вже в самому тестовому файлі
+    // @Parameters({...}) вказуємо різні параметри як наприклад різні браузери
+    //в value ми підставляємо різні значення вже в самому тестовому файлі
     @Parameters({"browser"})
     public void startTest(String browser){
         if(browser.equals("chrome_params")){

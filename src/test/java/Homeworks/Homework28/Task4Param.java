@@ -1,7 +1,5 @@
 package Homeworks.Homework28;
 
-
-
 import lesson6.Waiters;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
@@ -13,7 +11,7 @@ import org.testng.annotations.*;
 
 import static org.testng.Assert.assertTrue;
 
-public class task4Param {
+public class Task4Param {
     static WebDriver driver;
     @BeforeMethod
     public void start(){
@@ -49,15 +47,15 @@ public class task4Param {
                 .waitForPresenceOfElementLocatedReturn(By.xpath("//div[@class='page__title']"));
         WebElement resultOfIncorrectSearch=(new Waiters(driver))
                 .waitForPresenceOfElementLocatedReturn(By.xpath("//main[@class='pb-3']/main/div/following-sibling::*[1]/div/div/h1"));
-          if (resultOfSearch.getText().contains(expretedValue)) {
-              assertTrue(resultOfSearch.getText().contains(expretedValue));
-          }else {
-              if (resultOfIncorrectSearch.getText().contains(expretedValue)) {
-                  assertTrue(resultOfIncorrectSearch.getText().contains(expretedValue), "The result of search didn`t contains the word" + resultOfIncorrectSearch.getText());
-              } else {
-                  System.out.println("The result of search didn`t contains the word" + resultOfSearch.getText());
-              }
-          }
+        if (resultOfSearch.getText().contains(expretedValue)) {
+            assertTrue(resultOfSearch.getText().contains(expretedValue));
+        }else {
+            if (resultOfIncorrectSearch.getText().contains(expretedValue)) {
+                assertTrue(resultOfIncorrectSearch.getText().contains(expretedValue), "The result of search didn`t contains the word" + resultOfIncorrectSearch.getText());
+            } else {
+                System.out.println("The result of search didn`t contains the word" + resultOfSearch.getText());
+            }
+        }
 
     }
 
@@ -83,8 +81,4 @@ public class task4Param {
             }
         }
     }
-
-
-
-
 }
